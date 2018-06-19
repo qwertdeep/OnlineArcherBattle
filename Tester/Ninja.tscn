@@ -62,6 +62,7 @@ script = ExtResource( 1 )
 _sections_unfolded = [ "Collision" ]
 SPEED = 400
 active = true
+nearby = null
 
 [node name="Node2D" type="Node2D" parent="." index="0"]
 

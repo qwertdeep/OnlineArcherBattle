@@ -16,20 +16,19 @@ func _ready():
 	pass
 
 func _input(event):
-	pass
-#	if Input.is_action_just_pressed("ui_accept"):
-#		print("accept")
-#		if textcounter == 0:
-#			tie.buff_clear()
-#			tie.buff_text("I can't feel my legs...", 0.05)
-#			textcounter += 1
-#		elif textcounter == 1:
-#			tie.buff_text("... well i'm certainly not in control of them...", 0.05)
-#			textcounter += 1
-#		elif textcounter == 2:
-#			tie.buff_clear()
-#			textcounter = 0
-#		tie.set_state(tie.STATE_OUTPUT)
+	if Input.is_action_just_pressed("ui_accept"):
+		print("accept")
+		if textcounter == 0:
+			tie.buff_clear()
+			tie.buff_text("I can't feel my legs...", 0.05)
+			textcounter += 1
+		elif textcounter == 1:
+			tie.buff_text("... well i'm certainly not in control of them...", 0.05)
+			textcounter += 1
+		elif textcounter == 2:
+			tie.buff_clear()
+			textcounter = 0
+		tie.set_state(tie.STATE_OUTPUT)
 
 func _unhandled_input(event):
 	if Input.is_action_just_pressed("ui_click"):
@@ -62,11 +61,6 @@ func _process(delta):
 #	# Called every frame. Delta is time since last frame.
 #	# Update game logic here.
 #	pass
-
-
-
-
-
 
 
 func _on_Ranger_area_shape_entered(area_id, area, area_shape, self_shape):

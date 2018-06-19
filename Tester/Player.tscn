@@ -24,8 +24,8 @@ audio_bus_override = false
 audio_bus_name = "Master"
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "Transform", "Visibility", "Z Index" ]
-SPEED = null
-active = null
+SPEED = 400
+active = false
 nearby = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
@@ -39,7 +39,7 @@ shape = SubResource( 1 )
 position = Vector2( -113.81, -71.5442 )
 z_index = 1
 frames = ExtResource( 2 )
-animation = "idle"
+animation = "swim"
 playing = true
 _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
