@@ -1,0 +1,120 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Assets/gfxlib-fuzed_0/Sprites/grog.right.png" type="Texture" id=1]
+[ext_resource path="res://Assets/gfxlib-fuzed_0/Sprites/mine_floor.png" type="Texture" id=2]
+[ext_resource path="res://Assets/gfxlib-fuzed_0/Sprites/grog.left.png" type="Texture" id=3]
+[ext_resource path="res://Assets/gfxlib-fuzed_0/Backgrounds/lev04_candy/area04_parallax/area02_lev02/area02_lev02_bot.png" type="Texture" id=4]
+[ext_resource path="res://Assets/gfxlib-fuzed_0/Backgrounds/lev03_siberia/area03_tileset/area03_level_tiles.png" type="Texture" id=5]
+[ext_resource path="res://Assets/gfxlib-fuzed_0/Sprites/gripe.facing_right_drop_dynamite.png" type="Texture" id=6]
+
+[sub_resource type="Animation" id=1]
+
+resource_name = "grog right"
+length = 1.6
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimationPlayer/grog-left:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
+}
+
+[sub_resource type="Animation" id=2]
+
+resource_name = "move"
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimationPlayer/sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = false
+tracks/0/keys = {
+"times": PoolRealArray( 0.4 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimationPlayer/sprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 0.84906 ),
+"update": 0,
+"values": [ 0, 1, 2, 3 ]
+}
+
+[node name="KinematicBody2D" type="KinematicBody2D" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="0"]
+
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+"anims/grog right" = SubResource( 1 )
+anims/move = SubResource( 2 )
+blend_times = [  ]
+
+[node name="grog-right" type="Sprite" parent="AnimationPlayer" index="0"]
+
+position = Vector2( 210, 130 )
+texture = ExtResource( 1 )
+hframes = 8
+frame = 7
+_sections_unfolded = [ "Animation" ]
+
+[node name="mine_floor" type="Sprite" parent="AnimationPlayer/grog-right" index="0"]
+
+position = Vector2( -80, 20 )
+texture = ExtResource( 2 )
+
+[node name="grog-left" type="Sprite" parent="AnimationPlayer" index="1"]
+
+position = Vector2( 210, 200 )
+rotation = 0.00908926
+texture = ExtResource( 3 )
+hframes = 8
+frame = 2
+_sections_unfolded = [ "Animation" ]
+
+[node name="area02_lev02_bot" type="Sprite" parent="AnimationPlayer/grog-left" index="0"]
+
+position = Vector2( -90, -10 )
+texture = ExtResource( 4 )
+
+[node name="area03_level_tiles" type="Sprite" parent="AnimationPlayer/grog-left" index="1"]
+
+position = Vector2( -350, 350 )
+rotation = 0.0273708
+texture = ExtResource( 5 )
+_sections_unfolded = [ "Animation" ]
+
+[node name="sprite" type="Sprite" parent="AnimationPlayer" index="2"]
+
+position = Vector2( 192.689, 154.529 )
+texture = ExtResource( 6 )
+hframes = 4
+frame = 3
+_sections_unfolded = [ "Animation" ]
+
+

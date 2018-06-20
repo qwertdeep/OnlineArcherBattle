@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Ninja.gd" type="Script" id=1]
+[ext_resource path="res://bg/Ninja.tres" type="SpriteFrames" id=2]
+
+[node name="Player" type="Area2D"]
+
+position = Vector2( 460.463, 173.761 )
+scale = Vector2( 1.47372, 1.47372 )
+input_pickable = true
+gravity_point = true
+gravity_distance_scale = 0.01
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 1 )
+_sections_unfolded = [ "Collision" ]
+SPEED = 400
+active = true
+nearby = null
+
+[node name="Node2D" type="Node2D" parent="." index="0"]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="." index="1"]
+
+frames = ExtResource( 2 )
+animation = "idle"
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="2"]
+
+build_mode = 0
+polygon = PoolVector2Array( -14.3245, -15.3603, -28.9197, -6.73588, -38.871, 5.86911, -29.5832, 25.1083, -17.6416, 39.7035, 2.26102, 28.4254, 1.5976, 6.53252, -0.39267, -13.3701 )
+
+
